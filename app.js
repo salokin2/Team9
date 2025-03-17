@@ -78,3 +78,26 @@ document.querySelector('#yearInput').value = today.getFullYear();
 document.querySelector('#monthSelect').value = today.getMonth();
 createGrid();
 updateCalendarGrid();
+
+//Highlight day when clicked
+var cell = document.getElementsByClassName('cell')
+for(var i = 0; i < cell.length; i++) {
+    cell[i].addEventListener('click', function() {
+        console.log('element clicked');
+        var clickedCell = event.target;
+        clickedCell.style.backgroundColor = 'blue';
+    })
+}
+
+// Update Calender View
+function updateCalendarView(viewType) {
+    if(viewType == 'month') {
+
+    }
+    else if(viewType == 'year') {
+
+    }
+    else if(viewType == 'week') {
+        window.location.href = "weekView.html";
+    }
+}

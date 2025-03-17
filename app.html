@@ -27,7 +27,13 @@
     <option value="10">November</option>
     <option value="11">December</option>
   </select>
-  
+
+   <!-- Choose View -->
+   <select onchange="updateCalendarView(this.value)" id="viewSelect">
+     <option value="month">Month</option>
+     <option value="week">Week</option>
+     <option value="year">Year</option>
+   </select>
 
   <!-- Calandar grid -->
   <div class="calendar-grid">
