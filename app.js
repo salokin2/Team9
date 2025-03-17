@@ -98,7 +98,7 @@ function getHoliday(day, month, year, days) {
         txt += " Memorial Day";
     }
     // Labor Day
-    if (month === 8 && days[1] === 1 && d.getDay() === 2) {
+    if (month === 8 && days[1] === 1 && d.getDay() === 1) {
         txt += " Labor Day";
     }
     // Thanksgiving
