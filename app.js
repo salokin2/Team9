@@ -91,11 +91,11 @@ function getHoliday(day, month, year, days) {
 
     // check for day count holidays
     // MLK
-    if (month === 0 && days[1] === 3 && d.getDay() === 2) {
+    if (month === 0 && days[1] === 3 && d.getDay() === 1) {
         txt += " Martin Luther King";
     }
     // Memorial Day
-    if (month === 4 && d.getDay() === 2 && ((days[1] === 5 && day >= 29) || (days[1] === 4 && day >= 25))) {
+    if (month === 4 && d.getDay() === 1 && ((days[1] === 5 && day >= 29) || (days[1] === 4 && day >= 25))) {
         txt += " Memorial Day";
     }
     // Labor Day
