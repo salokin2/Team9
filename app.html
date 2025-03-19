@@ -34,6 +34,12 @@
           <option value="10">November</option>
           <option value="11">December</option>
         </select>
+        <!-- Choose View -->
+        <select class="change-view"onchange="updateCalendarView(this.value)" id="viewSelect">
+          <option value="month">Month</option>
+          <option value="week">Week</option>
+          <option value="year">Year</option>
+        </select>
       </div>
     
 
@@ -52,12 +58,7 @@
           <div>Sat</div>
         </div>
 
-        <!-- Choose View -->
-   <select onchange="updateCalendarView(this.value)" id="viewSelect">
-    <option value="month">Month</option>
-    <option value="week">Week</option>
-    <option value="year">Year</option>
-  </select>
+        
 
         <!-- Day grid -->
         <div class="day-grid">
