@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="weekView.css">
+    
         <title> Week View </title>
+    </head>
         <body>
             <button onclick="goToLink()">Back to month view</button>
             <script>
@@ -9,6 +12,22 @@
                     window.location.href = "app.html"
                 }
             </script>
+
+             <!-- Day grid -->
+             <div class="week-grid">
+                 <div class="day">Monday</div>
+                 <div class="day">Tuesday</div>
+                 <div class="day">Wednesday</div>
+                 <div class="day">Thursday</div>
+                 <div class="day">Friday</div>
+                 <div class="day">Saturday</div>
+                 <div class="day">Sunday</div>
+             </div>
+         <div class = "day-grid" id="day-grid">
+
+         </div>
+         <script src="weekView.js"></script>
+
+
         </body>
-    </head>
 </html>

@@ -1,0 +1,24 @@
+.week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for the 7 days */
+    gap: 2px; /* Small gap between columns */
+    width: 90%; /* Keeps the grid responsive */
+    max-width: 900px; /* Maximum width for the grid */
+    margin: 0 auto; /* Centers the grid horizontally */
+}
+
+.day-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Same as week-grid for alignment */
+    grid-template-rows: repeat(12, 50px); /* 12 rows for 12 hours */
+    gap: 2px; /* Small gap between the time slots */
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto; /* Centers it with some space at the top */
+}
+
+.time-slot {
+    border: 1px solid #ccc; /* Light border for time slots */
+    background-color: #f9f9f9; /* Light background for each time slot */
+    height: 50px; /* Height for each time slot */
+}
