@@ -152,6 +152,7 @@ function holidayMap() {
     temp.set('1-15', "Presidents' Day");
     temp.set('11-10', "Veterans' Day");
     temp.set('31-9', "Halloween");
+    temp.set('17-2', "St. Patrick's Day")
     return temp;
 }
 
