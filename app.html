@@ -16,8 +16,10 @@
     <div>
       left side
     </div>
+    
     <div class="calendar-container">
       <!-- Input date -->
+      
       <div class="input-container">
         <input class="year-view" type="number" onchange="updateCalendarGrid()" id="yearInput" placeholder="Enter a year">
         <select class="month-view" onchange="updateCalendarGrid()" id="monthSelect">
@@ -40,10 +42,16 @@
           <option value="week">Week</option>
           <option value="year">Year</option>
         </select>
-      </div>
-    
 
-      
+        <!--Light/Dark Mode Toggle-->
+        <div class="toggle-container">
+          <label class="toggle-switch">
+            <input type="checkbox" id="dark-mode-toggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+        
+      </div>
 
       <!-- Calandar grid -->
       <div class="calendar-grid">
@@ -58,7 +66,6 @@
           <div>Sat</div>
         </div>
 
-        
 
         <!-- Day grid -->
         <div class="day-grid">
