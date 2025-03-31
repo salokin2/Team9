@@ -108,7 +108,6 @@ function getHoliday(day, month, year, days) {
     }
 
     // Easter
-    console.log(getEasterDate(year));
     if (d.getMonth() === getEasterDate(year).getMonth() && d.getDate() === getEasterDate(year).getDate()) {
         txt += " Easter";
     }
@@ -171,7 +170,7 @@ function updateCalendarView(viewType) {
 
     }
     else if(viewType == 'year') {
-
+        window.location.href = "yearView.html";
     }
     else if(viewType == 'week') {
         window.location.href = "weekView.html";
