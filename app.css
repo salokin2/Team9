@@ -55,7 +55,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 10px;
+  padding: 5px;
 }
 
 .toggle-switch {
@@ -248,19 +248,19 @@ input:checked + .slider:before {
   flex-direction: column;
 }
 .month-view{
-  width: 10%;
+  width: 7%;
   margin-right: 5px;
  
 }
 .year-view{
-  width: 10%;
+  width: 7%;
   margin-left: 20vw;
   margin-right: 5px;
   border-radius: 6px;
   
 }
 .change-view{
-  width: 10%;
+  width: 7%;
   margin-right: 5px
   
 }
