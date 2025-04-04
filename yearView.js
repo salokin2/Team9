@@ -104,3 +104,27 @@ function updateCalendarView(viewType) {
         window.location.href = "weekView.html";
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    //Toggle Dark Mode
+    const toggleSwitch = document.getElementById("dark-mode-toggle");
+    const root = document.documentElement;
+
+    const viewToggleBtn = document.getElementById("view-toggle");
+    const calendarContainer = document.querySelector(".calendar-container");
+
+    if (localStorage.getItem("darkMode") === "enabled") {
+        root.classList.add("dark-mode");
+        toggleSwitch.checked = true;
+    }
+
+    toggleSwitch.addEventListener("change", function () {
+        if (toggleSwitch.checked) {
+            root.classList.add("dark-mode");
+            localStorage.setItem("darkMode", "enabled");
+        } else {
+            root.classList.remove("dark-mode");
+            localStorage.setItem("darkMode", "disabled");
+        }
+    });
+});

@@ -25,10 +25,11 @@
       
       <!-- Calendar -->
       <div class="calendar">
+        <div class="input-container">
 
         <!-- Input date -->
-        <input type="number" onchange="updateCalendarGrid()" id="yearInput" placeholder="Enter a year">
-        <select onchange="updateCalendarGrid()" id="monthSelect">
+        <input class="year-drop" type="number" onchange="updateCalendarGrid()" id="yearInput" placeholder="Enter a year">
+        <select class="month-drop" onchange="updateCalendarGrid()" id="monthSelect">
           <option value="0">January</option>
           <option value="1">February</option>
           <option value="2">March</option>
@@ -42,6 +43,20 @@
           <option value="10">November</option>
           <option value="11">December</option>
         </select>
+
+        <select class="change-view"onchange="updateCalendarView(this.value)" id="viewSelect">
+          <option value="month">Month</option>
+          <option value="week">Week</option>
+          <option value="year">Year</option>
+        </select>
+
+        <div class="toggle-container">
+          <label class="toggle-switch">
+            <input type="checkbox" id="dark-mode-toggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
 
         <div class="day-view" style="display: none;">
           <!-- Header -->
