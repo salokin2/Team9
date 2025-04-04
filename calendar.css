@@ -196,11 +196,11 @@ input:checked + .slider:before {
   height: 2px;
   color: var(--calendar-day-number-color);
 }
-
+/*
 .cell:nth-child(7n) {
   border-right: none;
 }
-
+*/
 .cell:last-child,
 .cell:nth-last-child(-n+7) {
   border-bottom: none;
@@ -211,7 +211,6 @@ input:checked + .slider:before {
 }
 
 /* Hide empty rows at the end */
-.day35.disabled,
 .day36.disabled,
 .day37.disabled,
 .day38.disabled,
