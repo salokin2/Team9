@@ -5,7 +5,21 @@
     <link rel="stylesheet" href="weekView.css">
 </head>
 <body>
-    
+    <!-- arrows -->
+    <div class="input-container">
+     <div class="week-navigation">
+        <button id="prev-week">&lt;</button>
+        <span id="current-week-display"></span>
+        <select class="change-view" onchange="updateCalendarView(this.value)" id="viewSelect">
+            <option value="week" selected>Week</option> 
+            <option value="month">Month</option>
+            <option value="year">Year</option> 
+        </select>
+        <button id="next-week">&gt;</button>
+    </div>
+        
+       
+     </div>
     <!-- Day names row -->
     <div class="week-grid" id="week-header">
         <div class="spacer"></div> <!-- Empty space to align with time column -->
@@ -16,11 +30,6 @@
         <div class="day">Friday</div>
         <div class="day">Saturday</div>
         <div class="day">Sunday</div>
-        <select class="change-view"onchange="updateCalendarView(this.value)" id="viewSelect">
-            <option value="week">Week</option>
-            <option value="month">Month</option>
-            <option value="year">Year</option>
-          </select>
     </div>
     
     <!-- Date display row (will be populated by JS) -->

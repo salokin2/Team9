@@ -20,9 +20,13 @@ button {
     margin: 0 auto; /* Centers the grid horizontally */
 }
 .change-view {
-    display: flex;
-    align-items: flex-start; /* Aligns items to the top */
+   /* display: flex;
+    align-items: center; /* Aligns items to the top */
+    /*text-align: center;
     justify-content: center; /* Centers items horizontally */
+    width: 20;
+    margin-right: 5%;
+    border-radius: 6px;
 }
 
 
@@ -108,3 +112,31 @@ button {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+/* Change Week Buttons */
+.week-navigation{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+.week-navigation button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 0; 
+}
+#current-week-display {
+    font-weight: bold;
+    min-width: 150px; /* Prevent layout shifts */
+    text-align: center;
+}
+/*
+.input-container{
+    height: 25px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+  }
+    */
