@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Calandar</title>
+    <title>Year View</title>
+    <link rel="stylesheet" href="yearView.css">
+    <script src="yearView.js" defer></script>
+</head>
+<body>
+    <div class="flex-box">
+        <div class="calendar-container">
+            <div class="input-container">
+                <input class="year-view" type="number" onchange="updateCalendar()" id="yearInput" placeholder="Enter a year">
+                <!-- Choose View -->
+                <select class="change-view"onchange="updateCalendarView(this.value)" id="viewSelect">
+                    <option value="year">Year</option>
+                    <option value="month">Month</option>
+                    <option value="week">Week</option>
+                </select>
+                <!--Light/Dark Mode Toggle-->
+                <div class="toggle-container">
+                    <label class="toggle-switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="calendar-grid">
+                <!-- Month Template -->
+                <div class="month">
+                    <div class="name"></div>
+                    <!-- Days of the week -->
+                    <div class="calendar-header">
+                        <div>S</div>
+                        <div>M</div>
+                        <div>T</div>
+                        <div>W</div>
+                        <div>T</div>
+                        <div>F</div>
+                        <div>S</div>
+                    </div>
+                    <!-- Day grid -->
+                    <div class="day-grid">
+                        <!-- Day cell layout -->
+                        <div class="cell">
+                            <div class="day-number"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

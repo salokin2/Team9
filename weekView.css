@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+button {
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.week-grid {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 80px repeat(7, 1fr); /* Time column + 7 columns for days */
+    gap: 0px;
+    max-width: 1280px; /* 1200px + 80px for time column */
+    width: 100%;
+    margin: 0 auto; /* Centers the grid horizontally */
+}
+.change-view {
+   /* display: flex;
+    align-items: center; /* Aligns items to the top */
+    /*text-align: center;
+    justify-content: center; /* Centers items horizontally */
+    width: 20;
+    margin-right: 5%;
+    border-radius: 6px;
+}
+
+
+#week-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#week-header .day:first-child {
+    grid-column: 2; /* Start from second column */
+}
+
+#date-header {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#date-header .date:first-child {
+    grid-column: 2; /* Start from second column */
+}
+
+.day-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Same as week-grid for alignment */
+    grid-template-rows: repeat(24, 50px); /* 24 rows for 24 hours */
+    gap: 0px;
+    width: 100%;
+    max-width: 1200px; /* Fixed width for the day grid */
+    margin: 0 auto; /* Centers it with some space at the top */
+}
+
+.time-slot {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    height: 50px;
+    width: 100%;
+}
+
+.time-slot:hover {
+    background-color: #eaeaea;
+}
+
+.schedule-container {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1280px; /* 1200px + 80px for time column */
+    justify-content: center;
+    margin: 0 auto;
+    gap: 0px;
+}
+
+.week-container {
+    display: grid;
+    grid-template-rows: repeat(24, 50px);
+    justify-content: end;
+    width: 80px; /* Fixed width for time labels */
+    margin: 0;
+    position: relative;
+}
+
+.times {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Additional styling for events */
+.event {
+    background-color: #4285f4;
+    color: white;
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-size: 12px;
+    position: absolute;
+    z-index: 10;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Change Week Buttons */
+.week-navigation{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+.week-navigation button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 0; 
+}
+#current-week-display {
+    font-weight: bold;
+    min-width: 150px; /* Prevent layout shifts */
+    text-align: center;
+}
+/*
+.input-container{
+    height: 25px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+  }
+    */
