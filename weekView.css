@@ -1,142 +1,289 @@
-body {
-    font-family: Arial, sans-serif;
+/* === Variable Definitions === */
+:root {
+    --calendar-border-color: #e0e0e0;
+    --calendar-bg-color: #ffffff;
+    --calendar-header-bg-color: linear-gradient(135deg, #00d2ff, #3a7bd5);
+    --calendar-cell-border-color: #e0e0e0;
+    --calendar-cell-hover-bg-color: rgba(238, 238, 238, 0.3);
+    --calendar-disabled-bg-color: #f5f5f5;
+    --calendar-disabled-text-color: #b0b0b0; /* Used for less important text like dates/times */
+    --calendar-day-number-color: #333333; /* Primary text color */
+    --calendar-text-color: #333333;      /* General text color */
+    --calendar-font-size: 14px;
+    --calendar-cell-padding: 2px;
+    --calendar-cell-min-height: 40px;
+    --calendar-header-padding: 10px 0;
+    --calendar-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --calendar-border-radius: 8px;
+    --calendar-today-bg-color: rgba(164, 255, 187, 0.3);
+    --calendar-today-text-color: #00d2ff;
+    --calendar-font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+    --button-bg-color: #3a7bd5;
+    --button-text-color: #ffffff;
+    --button-border-radius: 8px;
+    --button-font-size: 16px;
+    --button-padding: 5px 12px;
+    --button-hover-bg-color: #2a66b1;
+    /* Week view specific variables (optional) */
+    --week-time-label-color: #666; /* Original color for time labels */
+    --week-event-bg-color: #4285f4;
+    --week-event-text-color: white;
+    --week-event-border-radius: 3px;
+    --week-event-font-size: 12px;
+    --week-event-padding: 2px 5px;
+  }
+  
+  /* Dark Mode variables */
+  :root.dark-mode {
+    --calendar-border-color: #444;
+    --calendar-bg-color: #222;
+    /* --calendar-header-bg-color: linear-gradient(135deg, #00d2ff, #3a7bd5); /* Keep or adjust for dark */
+    --calendar-cell-border-color: #555;
+    --calendar-cell-hover-bg-color: rgba(255, 255, 255, 0.1);
+    --calendar-disabled-bg-color: #333;
+    --calendar-disabled-text-color: #777; /* Lighter grey for dark mode disabled text */
+    --calendar-day-number-color: #ffffff;
+    --calendar-text-color: #ffffff; /* General text color for dark mode */
+    --calendar-box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    --calendar-today-bg-color: rgba(255, 255, 255, 0.2);
+    --calendar-today-text-color: #ffffff;
+    /* Dark mode specific overrides */
+    --week-time-label-color: #aaa; /* Lighter grey for dark mode time labels */
+    /* Optional dark mode overrides for buttons/events if desired */
+    /* --button-bg-color: ...; */
+    /* --button-hover-bg-color: ...; */
+    /* --week-event-bg-color: ...; */
+  }
+  
+  /* === Refactored Week View CSS (Excluding Dark Mode Toggle) === */
+  
+  body {
+    /* Use variable for font */
+    font-family: var(--calendar-font-family);
     margin: 0;
     padding: 20px;
-}
-
-button {
-    margin-bottom: 15px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.week-grid {
+    /* Apply theme background and text color */
+    background-color: var(--calendar-bg-color);
+    color: var(--calendar-text-color);
+  }
+  
+  
+  
+  .week-grid {
     display: grid;
     text-align: center;
-    grid-template-columns: 80px repeat(7, 1fr); /* Time column + 7 columns for days */
+    grid-template-columns: 80px repeat(7, 1fr);
     gap: 0px;
-    max-width: 1280px; /* 1200px + 80px for time column */
+    max-width: 1280px;
     width: 100%;
-    margin: 0 auto; /* Centers the grid horizontally */
-}
-.change-view {
-   /* display: flex;
-    align-items: center; /* Aligns items to the top */
-    /*text-align: center;
-    justify-content: center; /* Centers items horizontally */
-    width: 20;
+    margin: 0 auto;
+  }
+  
+  .change-view {
+    width: 65px;
     margin-right: 5%;
-    border-radius: 6px;
-}
-
-
-#week-header {
+    border-radius: var(--button-border-radius);
+  }
+  
+  #week-header {
     font-weight: bold;
     margin-bottom: 5px;
-}
-
-#week-header .day:first-child {
-    grid-column: 2; /* Start from second column */
-}
-
-#date-header {
-    color: #666;
-    font-size: 14px;
+    /* Apply theme header styles */
+    padding: var(--calendar-header-padding);
+    background: var(--calendar-header-bg-color);
+    color: var(--button-text-color); /* Usually white/light text on gradient */
+  }
+  
+  #week-header .day:first-child {
+    grid-column: 2;
+  }
+  
+  #date-header {
+    /* Use variable for less important text */
+    color: var(--calendar-disabled-text-color);
+    /* Use variable for font size */
+    font-size: var(--calendar-font-size);
     margin-bottom: 10px;
-}
-
-#date-header .date:first-child {
-    grid-column: 2; /* Start from second column */
-}
-
-.day-grid {
+  }
+  
+  #date-header .date:first-child {
+    grid-column: 2;
+  }
+  
+  .day-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr); /* Same as week-grid for alignment */
-    grid-template-rows: repeat(24, 50px); /* 24 rows for 24 hours */
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(24, 50px);
     gap: 0px;
     width: 100%;
-    max-width: 1200px; /* Fixed width for the day grid */
-    margin: 0 auto; /* Centers it with some space at the top */
-}
-
-.time-slot {
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .time-slot {
+    /* Use variable for cell borders */
+    border-right: 1px solid var(--calendar-cell-border-color);
+    border-bottom: 1px solid var(--calendar-cell-border-color);
+    /* Use variable for cell background */
+    background-color: var(--calendar-bg-color);
     height: 50px;
     width: 100%;
-}
-
-.time-slot:hover {
-    background-color: #eaeaea;
-}
-
-.schedule-container {
+    box-sizing: border-box;
+  }
+  
+  .time-slot:hover {
+    /* Use variable for hover background */
+    background-color: var(--calendar-cell-hover-bg-color);
+  }
+  
+  .schedule-container {
     display: flex;
     align-items: flex-start;
     width: 100%;
-    max-width: 1280px; /* 1200px + 80px for time column */
+    max-width: 1280px;
     justify-content: center;
-    margin: 0 auto;
+    margin: 20px auto; /* Added top/bottom margin */
     gap: 0px;
-}
-
-.week-container {
+    /* Apply theme container styles */
+    background-color: var(--calendar-bg-color);
+    border: 1px solid var(--calendar-border-color);
+    border-radius: var(--calendar-border-radius);
+    box-shadow: var(--calendar-box-shadow);
+    overflow: hidden;
+  }
+  
+  .week-container { /* Time label container */
     display: grid;
     grid-template-rows: repeat(24, 50px);
     justify-content: end;
-    width: 80px; /* Fixed width for time labels */
+    width: 80px;
     margin: 0;
     position: relative;
-}
-
-.times {
+  }
+  
+  .times { /* Individual time label */
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     padding-right: 10px;
-    font-size: 14px;
-    color: #666;
-}
-
-/* Additional styling for events */
-.event {
-    background-color: #4285f4;
-    color: white;
-    border-radius: 3px;
-    padding: 2px 5px;
-    font-size: 12px;
+    /* Use variables */
+    font-size: var(--calendar-font-size);
+    color: var(--week-time-label-color); /* Specific variable for time labels */
+    border-bottom: 1px solid var(--calendar-cell-border-color); /* Match grid lines */
+    box-sizing: border-box;
+  }
+  .times:last-child {
+    border-bottom: none;
+  }
+  
+  /* Event Styling */
+  .event {
+    /* Using specific event variables (defined in :root) */
+    background-color: var(--week-event-bg-color);
+    color: var(--week-event-text-color);
+    border-radius: var(--week-event-border-radius);
+    padding: var(--week-event-padding);
+    font-size: var(--week-event-font-size);
     position: absolute;
     z-index: 10;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-
-/* Change Week Buttons */
-.week-navigation{
-    display: flex; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  
+  /* Change Week Buttons */
+  .week-navigation {
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
-    margin-bottom: 10px;
-}
-.week-navigation button {
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-bottom: 0; 
-}
-#current-week-display {
-    font-weight: bold;
-    min-width: 150px; /* Prevent layout shifts */
-    text-align: center;
-}
-/*
-.input-container{
-    height: 25px;
-    display: flex;
-    align-items: center;
-    padding: 5px;
+    margin-bottom: 20px;
   }
-    */
+  
+  .week-navigation button {
+    /* Use button variables */
+    padding: var(--button-padding);
+    font-size: var(--button-font-size);
+    cursor: pointer;
+    margin-bottom: 0;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: var(--button-border-radius);
+    font-family: var(--calendar-font-family);
+    transition: background-color 0.2s ease;
+  }
+  
+  .week-navigation button:hover {
+    /* Use button hover variable */
+    background-color: var(--button-hover-bg-color);
+  }
+  
+  #current-week-display {
+    font-weight: bold;
+    min-width: 150px;
+    text-align: center;
+    /* Use variables */
+    color: var(--calendar-day-number-color);
+    font-size: var(--button-font-size); /* Match button size */
+  }
+  
+  
+  /* === ORIGINAL Dark Mode Toggle Styles (Untouched) === */
+  .toggle-container {
+    margin-left: 5px;
+  }
+  
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+  }
+  
+  .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc; /* Original Hardcoded Value */
+    transition: 0.4s;
+    border-radius: 20px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white; /* Original Hardcoded Value */
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #00d2ff; /* Original Hardcoded Value */
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(18px);
+  }
+  
+  /* Ensure dark mode class triggers variable changes */
+  .dark-mode .calendar-container { /* If you have a wrapper */
+     background-color: var(--calendar-bg-color);
+     color: var(--calendar-text-color);
+  }
+  /* Body background/color set directly via variable */
