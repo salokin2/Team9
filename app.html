@@ -28,8 +28,7 @@
       <!-- Calendar -->
       <div class="calendar">
         <div class="input-container">
-
-        <!-- Input date -->
+        <button id="prev-week">&lt;</button>
         <input class="year-drop" type="number" onchange="updateCalendarGrid()" id="yearInput" placeholder="Enter a year">
         <select class="month-drop" onchange="updateCalendarGrid()" id="monthSelect">
           <option value="0">January</option>
@@ -51,13 +50,14 @@
           <option value="week">Week</option>
           <option value="year">Year</option>
         </select>
-
+        <!--Light/Dark Mode Toggle-->
         <div class="toggle-container">
           <label class="toggle-switch">
             <input type="checkbox" id="dark-mode-toggle">
             <span class="slider"></span>
           </label>
         </div>
+        <button id="next-week">&gt;</button>
       </div>
 
         <div class="day-view" style="display: none;">
