@@ -28,7 +28,7 @@
       <!-- Calendar -->
       <div class="calendar">
         <div class="input-container">
-        <button id="prev-week">&lt;</button>
+        <button id="prev-month" class="nav-button">&lt;</button>
         <input class="year-drop" type="number" onchange="updateCalendarGrid()" id="yearInput" placeholder="Enter a year">
         <select class="month-drop" onchange="updateCalendarGrid()" id="monthSelect">
           <option value="0">January</option>
@@ -57,7 +57,7 @@
             <span class="slider"></span>
           </label>
         </div>
-        <button id="next-week">&gt;</button>
+        <button id="next-month" class="nav-button">&gt;</button>
       </div>
 
         <div class="day-view" style="display: none;">

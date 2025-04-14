@@ -3,12 +3,13 @@
 <head>
     <title>Week View Calendar</title>
     <link rel="stylesheet" href="weekView.css">
+    <link rel="stylesheet" href="calendar.css">
 </head>
 <body>
     <!-- arrows -->
     <div class="input-container">
      <div class="week-navigation">
-        <button id="prev-week">&lt;</button>
+        <button id="prev-week" class="nav-button">&lt;</button>
         <span id="current-week-display"></span>
         <select class="change-view" onchange="updateCalendarView(this.value)" id="viewSelect">
             <option value="week" selected>Week</option> 
@@ -22,7 +23,7 @@
             <span class="slider"></span>
             </label>
         </div>
-        <button id="next-week">&gt;</button>
+        <button id="next-week" class="nav-button">&gt;</button>
     </div>
         
        

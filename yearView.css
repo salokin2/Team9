@@ -131,16 +131,6 @@
       text-align: center;
   }
   
-  .input-container {
-  
-      height: 25px;
-      display: flex;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 6px;
-      padding: 5px;
-    
-  }
 
   /*Dark Mode*/
 :root.dark-mode {
@@ -214,103 +204,35 @@ background-color: #00d2ff;
 input:checked + .slider:before {
 transform: translateX(18px);
 }
-.year-view{
-width: 5%;
-border-radius: 6px;
-margin-left: 43%;
 
-}
-.change-view{
-width: 5%;
-margin-left: 5px;
-
-
-}
-
-
-    /*Dark Mode*/
-:root.dark-mode {
-  --calendar-border-color: #444;
-  --calendar-bg-color: #222;
-  --calendar-header-bg-color: linear-gradient(135deg, #00d2ff, #3a7bd5);
-  --calendar-cell-border-color: #555;
-  --calendar-cell-hover-bg-color: rgba(255, 255, 255, 0.1);
-  --calendar-disabled-bg-color: #333;
-  --calendar-disabled-text-color: #777;
-  --calendar-day-number-color: #ffffff;
-  --calendar-text-color: #ffffff;
-  --calendar-box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-  --calendar-today-bg-color: rgba(255, 255, 255, 0.2);
-  --calendar-today-text-color: #ffffff;
-  --flex-box-bg: #111;
-  --flex-box-item-bg: #333;
-  --flex-box-margin: 1px;
-  --flex-box-text-color: white;
-  --year-view-margin-left: 10vw;
+.input-container{
+  height: 25px;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 5px;
+  gap:10px;
+  justify-content: center;
 }
 .dark-mode .calendar-container {
   background-color: #222;
   color: #fff;
 }
-.toggle-container {
-  margin-left: 5px;
-}
-
-.toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 20px;
-}
-
-.toggle-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 20px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 14px;
-  width: 14px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #00d2ff;
-}
-
-input:checked + .slider:before {
-  transform: translateX(18px);
-}
 .year-view{
-  width: 5%;
+  width: 7%;
   border-radius: 6px;
-  margin-left: 43%;
-  
+  padding: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
 }
+
 .change-view{
-  width: 5%;
-  margin-left: 5px;
-  
-  
+  width: 130px;
+  border-radius: 6px;
+  padding: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
 }
 
 

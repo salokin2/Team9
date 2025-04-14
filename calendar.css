@@ -464,6 +464,8 @@ input:checked + .slider:before {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 6px;
   padding: 5px;
+  gap:10px;
+  justify-content: center;
 }
 .dark-mode .calendar-container {
   background-color: #222;
@@ -471,19 +473,45 @@ input:checked + .slider:before {
 }
 .year-drop{
   width: 7%;
-  margin-left: 20vw;
-  margin-right: 5px;
   border-radius: 6px;
+  padding: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
 }
 
 .change-view{
-  width: 7%;
-  margin-right: 5px;
+  width: 130px;
   border-radius: 6px;
+  padding: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
 }
 
 .month-drop{
-  width: 7%;
-  margin-right: 5px;
+  width: 130px;
   border-radius: 6px;
+  padding: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.nav-button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: var(--button-border-radius, 8px);
+  padding: 6px 12px; /* Adjust for vertical alignment with inputs/selects */
+  font-size: var(--button-font-size, 16px);
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  min-width: 40px;
+  text-align: center;
+}
+.nav-button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+.nav-button:active {
+  transform: scale(0.95);
 }

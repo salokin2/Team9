@@ -202,25 +202,6 @@
     margin-bottom: 20px;
   }
   
-  .week-navigation button {
-    /* Use button variables */
-    padding: var(--button-padding);
-    font-size: var(--button-font-size);
-    cursor: pointer;
-    margin-bottom: 0;
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
-    border: none;
-    border-radius: var(--button-border-radius);
-    font-family: var(--calendar-font-family);
-    transition: background-color 0.2s ease;
-  }
-  
-  .week-navigation button:hover {
-    /* Use button hover variable */
-    background-color: var(--button-hover-bg-color);
-  }
-  
   #current-week-display {
     font-weight: bold;
     min-width: 150px;

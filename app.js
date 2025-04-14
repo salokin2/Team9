@@ -530,6 +530,69 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("darkMode", "disabled");
         }
     });
+
+    const prevMonthButton = document.getElementById('prev-month'); 
+    const nextMonthButton = document.getElementById('next-month'); 
+    const monthSelect = document.getElementById('monthSelect');
+    const yearInput = document.getElementById('yearInput');
+
+    
+    if (prevMonthButton && nextMonthButton && monthSelect && yearInput) {
+
+        prevMonthButton.addEventListener('click', () => {
+            let currentMonth = parseInt(monthSelect.value, 10);
+            let currentYear = parseInt(yearInput.value, 10);
+
+            if (isNaN(currentYear)) { 
+                 const today = new Date();
+                 currentYear = today.getFullYear();
+                 yearInput.value = currentYear; 
+            }
+
+            currentMonth--; //Go to the previous month
+
+            if (currentMonth < 0) { 
+                currentMonth = 11;
+                currentYear--;     
+            }
+
+           
+            monthSelect.value = currentMonth;
+            yearInput.value = currentYear;
+
+            //Refresh the calendar display
+            updateCalendarGrid();
+        });
+
+        nextMonthButton.addEventListener('click', () => {
+            let currentMonth = parseInt(monthSelect.value, 10);
+            let currentYear = parseInt(yearInput.value, 10);
+
+             if (isNaN(currentYear)) { 
+                 const today = new Date();
+                 currentYear = today.getFullYear();
+                 yearInput.value = currentYear;  
+            }
+
+            currentMonth++;
+
+            if (currentMonth > 11) { 
+                currentMonth = 0;  
+                currentYear++;   //Increment the year
+            }
+
+         
+            monthSelect.value = currentMonth;
+            yearInput.value = currentYear;
+
+            //Refresh the calendar display
+            updateCalendarGrid();
+        });
+
+    } else {
+        //chekcs for error
+        console.error("Could not find month navigation buttons, month select, or year input elements. Make sure IDs are correct in HTML.");
+    }
 });
 
 function getTodayEvents() {
