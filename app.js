@@ -151,6 +151,7 @@ function loadEvents() {
  */
 function saveEvents() {
     localStorage.setItem('calendarEvents', JSON.stringify(calendarEvents));
+    addTodayEventsToSidebar();
 }
 
 /**
