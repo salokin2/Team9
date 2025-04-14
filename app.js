@@ -530,3 +530,33 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+function getTodayEvents() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth();
+    const day = today.getDate();
+
+    return getEventsForDate(year, month, day);
+}
+
+function addTodayEventsToSidebar() {
+    const leftSidebar = document.querySelector('.sidebar.left');
+    const todayEvents = getTodayEvents();
+
+    leftSidebar.innerHTML = ''; // Clear existing content
+    const todayEventsContainer = document.createElement('div');
+    todayEventsContainer.className = 'today-events';
+    todayEventsContainer.innerHTML = '<h2>Today\'s Events</h2>';
+    if (todayEvents.length === 0) {
+        todayEventsContainer.innerHTML += '<p>No events for today.</p>';
+    } else {
+        todayEvents.forEach(event => {
+            const eventItem = document.createElement('div');
+            eventItem.className = 'event-item';
+            eventItem.textContent = `${event.time || 'All day'}: ${event.title}`;
+            todayEventsContainer.appendChild(eventItem);
+        });
+    }
+    leftSidebar.appendChild(todayEventsContainer);
+}
